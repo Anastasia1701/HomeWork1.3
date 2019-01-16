@@ -1,25 +1,71 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calculator", "calculator\calculator.csproj", "{5806BEC2-4593-424B-8E7F-EC1EA4B70319}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5806BEC2-4593-424B-8E7F-EC1EA4B70319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5806BEC2-4593-424B-8E7F-EC1EA4B70319}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5806BEC2-4593-424B-8E7F-EC1EA4B70319}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5806BEC2-4593-424B-8E7F-EC1EA4B70319}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9316354F-63D4-425C-A16C-AD93D5CD02DC}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace calculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char again = 'д';
+            while (again == 'д') //программа начнёт работу заново благодаря циклу while и будет работать до тех пор, пока пользователь не присвоит переменной again значение “н ”
+            {
+                double number1;//тип переменной с плавающей запятой
+                double number2;
+                double total;
+                char oper;//тип переменной в виде какого-либо символа
+
+                Console.WriteLine("Введите первое число:");
+                number1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Введите операторацию которую хотите совершить :");
+                oper = Convert.ToChar(Console.ReadLine());
+
+                Console.WriteLine("Введите второе число:");
+                number2 = Convert.ToDouble(Console.ReadLine());
+
+                if (oper == '+')
+                {
+                    total = number1 + number2;
+                    Console.WriteLine( number1 + " + " + number2 + " = " + total + ".");
+                }
+
+                else if (oper == '-')
+                {
+                    total = number1 - number2;
+                    Console.WriteLine( number1 + " - " + number2 + " = " + total + ".");
+                }
+
+                else if (oper == '*')
+                {
+                    total = number1 * number2;
+                    Console.WriteLine( number1 + " * " + number2 + " = " + total + ".");
+                }
+
+                else if (oper == ':')
+                {
+                    total = number1 / number2;
+
+                    Console.WriteLine(number1 + " :  " + number2 + " = " + total + ".");
+
+                }
+                else if (oper == '/')
+                {
+                    total = number1 / number2;
+
+                    Console.WriteLine( number1 + " /  " + number2 + " = " + total + ".");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неизвестный оператор.");
+                }
+                Console.WriteLine("Вы хотите продолжить работу с калькулятором? (д/н)");
+                again = Convert.ToChar(Console.ReadLine());
+            }
+        }
+    }
+}
